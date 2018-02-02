@@ -53,7 +53,7 @@ bintray {
 		repo = 'poisondog'
 		name = 'poisondog.select'
 		licenses = ['Apache-2.0']
-		vcsUrl = 'https://github.com/poisondog/poisondog.core.git'
+		vcsUrl = 'https://github.com/poisondog/poisondog.select.git'
 	}
 }
 
