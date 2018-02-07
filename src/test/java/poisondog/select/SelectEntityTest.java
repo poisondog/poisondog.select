@@ -24,22 +24,26 @@ import org.junit.Test;
  * @since 2009-06-17
  */
 public class SelectEntityTest {
-
-	private SelectEntity ds;
-	private String title;
+	private SelectEntity mEntity;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-		title = new String("Test");
-		ds = new SelectEntity(title,123.7);
+		mEntity = new SelectEntity("Test", 123.7);
 	}
 
 	@Test
 	public void test() {
-		Assert.assertEquals(title,ds.getEntity());
-		Assert.assertEquals(123.7,ds.getKey());
+		Assert.assertEquals("Test", mEntity.getEntity());
+		Assert.assertEquals(123.7, mEntity.getKey());
+	}
+
+	@Test
+	public void testDefaultValue() throws Exception {
+		mEntity = new SelectEntity("Test");
+		Assert.assertEquals("Test", mEntity.getEntity());
+		Assert.assertEquals(1.0, mEntity.getKey());
 	}
 }

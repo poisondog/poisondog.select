@@ -33,6 +33,13 @@ public class SelectEntity  {
 		this.key = key;
 	}
 
+	/**
+	 * Constructor
+	 */
+	public SelectEntity(Object object) {
+		this(object, 1.0);
+	}
+
 	public Object getEntity() {
 		return object;
 	}
