@@ -25,7 +25,12 @@ public class InverseRouletteTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		selection = new InverseRoulette();
+		selection = new InverseRoulette(10l);
+	}
+
+	@Test
+	public void testInstance() throws Exception {
+		Assert.assertNotNull(new InverseRoulette());
 	}
 
 	@Test
