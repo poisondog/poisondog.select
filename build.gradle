@@ -6,37 +6,41 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * user guide available at http://gradle.org/docs/2.3/userguide/tutorial_java_projects.html
  */
-buildscript {
-	repositories {
-		jcenter()
-	}
-}
 
 plugins {
 	id "com.jfrog.bintray" version "1.7"
+	id "net.saliman.cobertura" version "2.3.1"
 }
 
 group = 'poisondog'
 version = '1.1.0'
 
-allprojects {
-	repositories {
-		jcenter()
+repositories {
+	jcenter()
+	maven {
+		url "https://dl.bintray.com/poisondog/poisondog"
 	}
-	apply plugin: 'maven'
-	apply plugin: 'maven-publish'
-	apply plugin: 'java'
 }
+
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'java'
 
 sourceCompatibility = 1.5
 targetCompatibility = 1.5
+
+dependencies {
+	compile 'org.slf4j:slf4j-api:1.7.21'
+	compile 'poisondog:poisondog.core:1.0.5'
+	testCompile "junit:junit:4.11"
+}
 
 publishing {
 	publications {
 		MyPublication(MavenPublication) {
 			from components.java
 			groupId group
-			artifactId 'poisondog.select'
+			artifactId project.name
 			version version
 		}
 	}
@@ -47,18 +51,16 @@ bintray {
 	properties.load(project.rootProject.file('local.properties').newDataInputStream())
 	user = properties.getProperty('bintray.user')
 	key = properties.getProperty('bintray.apikey')
-
 	publications = ['MyPublication']
 	pkg {
 		repo = 'poisondog'
-		name = 'poisondog.select'
+		name = project.name
 		licenses = ['Apache-2.0']
 		vcsUrl = 'https://github.com/poisondog/poisondog.select.git'
 	}
 }
 
-dependencies {
-	compile 'poisondog:poisondog.core:1.0.5'
-	testCompile "junit:junit:4.11"
+cobertura {
+	coverageFormats = ['html', 'xml']
 }
 
