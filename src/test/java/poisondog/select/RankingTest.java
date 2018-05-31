@@ -35,7 +35,12 @@ public class RankingTest {
 	public void setUp() throws Exception {
 		mRanking = new Ranking(33l);
 	}
-	
+
+	@Test
+	public void testInstance() throws Exception {
+		Assert.assertNotNull(new Ranking());
+	}
+
 	@Test
 	public void testSelection() {
 		List<SelectEntity> list = new ArrayList<SelectEntity>();

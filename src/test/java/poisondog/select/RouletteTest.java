@@ -33,7 +33,12 @@ public class RouletteTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		mSelector = new Roulette();
+		mSelector = new Roulette(10l);
+	}
+
+	@Test
+	public void testInstance() throws Exception {
+		Assert.assertNotNull(new Roulette());
 	}
 
 	@Test

@@ -41,7 +41,7 @@ public class TournamentTest {
 		list.add(new SelectEntity(0, 2));
 		list.add(best);
 
-		Tournament selection = new Tournament(2);
+		Tournament selection = new Tournament(2, 10l);
 		SelectEntity winner = selection.execute(list);
 		Assert.assertEquals(best, winner);
 	}
