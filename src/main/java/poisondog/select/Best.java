@@ -23,9 +23,9 @@ import java.util.List;
 public class Best implements Selector {
 
 	@Override
-	public SelectEntity execute(List<SelectEntity> participants) {
-		SelectEntity best = new SelectEntity(null, Double.NEGATIVE_INFINITY);
-		for (SelectEntity entity : participants) {
+	public Ball execute(List<Ball> participants) {
+		Ball best = new Ball(null, Double.NEGATIVE_INFINITY);
+		for (Ball entity : participants) {
 			if (entity.getKey() > best.getKey())
 				best = entity;
 		}

@@ -36,15 +36,15 @@ public class InverseRoulette implements Selector {
 	}
 
 	@Override
-	public SelectEntity execute(List<SelectEntity> participants) {
+	public Ball execute(List<Ball> participants) {
 		double max = 0;
-		for (SelectEntity entity : participants) {
+		for (Ball entity : participants) {
 			if (entity.getKey() > max)
 				max = entity.getKey();
 		}
-		List<SelectEntity> temp = new ArrayList<SelectEntity>(participants.size());
-		for (SelectEntity entity : participants) {
-			temp.add(new SelectEntity(entity.getEntity(), max / entity.getKey()));
+		List<Ball> temp = new ArrayList<Ball>(participants.size());
+		for (Ball entity : participants) {
+			temp.add(new Ball(entity.getEntity(), max / entity.getKey()));
 		}
 		return mRoulette.execute(temp);
 	}

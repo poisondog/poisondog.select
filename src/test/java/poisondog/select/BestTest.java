@@ -28,12 +28,12 @@ public class BestTest {
 	public void testGetWinner() throws Exception {
 		Best selection = new Best();
 		
-		SelectEntity s1 = new SelectEntity(0, 1);
-		SelectEntity s2 = new SelectEntity(1, 30);
-		SelectEntity s3 = new SelectEntity(2, 60);
-		SelectEntity s4 = new SelectEntity(3, 90);
+		Ball s1 = new Ball(0, 1);
+		Ball s2 = new Ball(1, 30);
+		Ball s3 = new Ball(2, 60);
+		Ball s4 = new Ball(3, 90);
 
-		List<SelectEntity> list = new ArrayList<SelectEntity>();
+		List<Ball> list = new ArrayList<Ball>();
 		list.add(s1);
 		list.add(s2);
 		list.add(s3);

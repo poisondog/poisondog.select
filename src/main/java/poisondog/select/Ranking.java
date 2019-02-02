@@ -25,7 +25,7 @@ import java.util.Random;
  * @author Adam Huang
  */
 public class Ranking implements Selector {
-	private Comparator<SelectEntity> mComparator;
+	private Comparator<Ball> mComparator;
 	private Random mRandom;
 
 	public Ranking() {
@@ -42,7 +42,7 @@ public class Ranking implements Selector {
 	}
 
 	@Override
-	public SelectEntity execute(List<SelectEntity> participants) {
+	public Ball execute(List<Ball> participants) {
 		Collections.sort(participants, mComparator);
 		double sum = 0;
 		for (int i = 0; i < participants.size(); i++) {

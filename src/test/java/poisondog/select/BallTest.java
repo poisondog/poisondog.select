@@ -23,9 +23,9 @@ import org.junit.Test;
  * @author Adam Huang
  * @since 2009-06-17
  */
-public class SelectEntityTest {
+public class BallTest {
 
-	private SelectEntity ds;
+	private Ball ds;
 	private String title;
 
 	/**
@@ -34,7 +34,7 @@ public class SelectEntityTest {
 	@Before
 	public void setUp() throws Exception {
 		title = new String("Test");
-		ds = new SelectEntity(title,123.7);
+		ds = new Ball(title,123.7);
 	}
 
 	@Test

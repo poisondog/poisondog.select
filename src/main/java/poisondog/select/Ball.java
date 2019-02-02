@@ -19,7 +19,7 @@ package poisondog.select;
  * 基礎的可選擇元素，用以簡單實現簡單的選擇機制。
  * @author Adam Huang
  */
-public class SelectEntity  {
+public class Ball  {
 
 	private final double key;
 	private final Object object;
@@ -28,7 +28,7 @@ public class SelectEntity  {
 	 * Constructors.<br>
 	 * Notice! the key is more bigger more better.
 	 */
-	public SelectEntity(Object object, double key) {
+	public Ball(Object object, double key) {
 		this.object = object;
 		this.key = key;
 	}
