@@ -20,7 +20,7 @@ import java.util.Comparator;
  * 以遞增的方式排序。
  * @author Adam Huang <poisondog@gmail.com>
  */
-public class Increment implements Comparator<SelectEntity> {
+public class Increment implements Comparator<Ball> {
 
 	/**
 	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
@@ -29,7 +29,7 @@ public class Increment implements Comparator<SelectEntity> {
 	 * @if(o1.fitness==o2.fitness) return 0
 	 */
 	@Override
-	public int compare(SelectEntity o1, SelectEntity o2) {
+	public int compare(Ball o1, Ball o2) {
 		if (o1.getKey() < o2.getKey())
 			return -1;
 		else if (o1.getKey() > o2.getKey())

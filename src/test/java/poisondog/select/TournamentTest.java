@@ -36,13 +36,13 @@ public class TournamentTest {
 
 	@Test
 	public void testSelection() throws Exception {
-		SelectEntity best = new SelectEntity(1, 3);
-		List<SelectEntity> list = new ArrayList<SelectEntity>();
-		list.add(new SelectEntity(0, 2));
+		Ball best = new Ball(1, 3);
+		List<Ball> list = new ArrayList<Ball>();
+		list.add(new Ball(0, 2));
 		list.add(best);
 
-		Tournament selection = new Tournament(2, 10l);
-		SelectEntity winner = selection.execute(list);
+		Tournament selection = new Tournament(2);
+		Ball winner = selection.execute(list);
 		Assert.assertEquals(best, winner);
 	}
 
@@ -53,17 +53,17 @@ public class TournamentTest {
 	 */
 	@Test
 	public void testSelection2() throws Exception {
-		SelectEntity e1 = new SelectEntity("1", 3);
-		SelectEntity e2 = new SelectEntity("2", 4);
-		SelectEntity e3 = new SelectEntity("3", 5);
+		Ball e1 = new Ball("1", 3);
+		Ball e2 = new Ball("2", 4);
+		Ball e3 = new Ball("3", 5);
 
-		List<SelectEntity> list = new ArrayList<SelectEntity>();
+		List<Ball> list = new ArrayList<Ball>();
 		list.add(e1);
 		list.add(e2);
 		list.add(e3);
 
 		Selector selection = new Tournament(10);
-		SelectEntity winner = selection.execute(list);
+		Ball winner = selection.execute(list);
 		Assert.assertEquals(e3, winner);
 	}
 
@@ -74,18 +74,18 @@ public class TournamentTest {
 	 */
 	@Test
 	public void testDoubleSelection() throws Exception {
-		SelectEntity e1 = new SelectEntity("1", 3);
-		SelectEntity e2 = new SelectEntity("2", 4);
-		SelectEntity e3 = new SelectEntity("3", 5);
+		Ball e1 = new Ball("1", 3);
+		Ball e2 = new Ball("2", 4);
+		Ball e3 = new Ball("3", 5);
 
-		List<SelectEntity> list = new ArrayList<SelectEntity>();
+		List<Ball> list = new ArrayList<Ball>();
 		list.add(e1);
 		list.add(e2);
 		list.add(e3);
 
 		Selector selection = new Tournament(10);
-		SelectEntity r1 = selection.execute(list);
-		SelectEntity r2 = selection.execute(list);
+		Ball r1 = selection.execute(list);
+		Ball r2 = selection.execute(list);
 
 		Assert.assertEquals(e3, r1);
 		Assert.assertEquals(e3, r2);

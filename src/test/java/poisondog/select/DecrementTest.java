@@ -33,12 +33,12 @@ public class DecrementTest {
 
 	@Test
 	public void testCompare() throws Exception {
-		ArrayList<SelectEntity> list = new ArrayList<SelectEntity>();
-		list.add(new SelectEntity(0,10));
-		list.add(new SelectEntity(1,30));
-		list.add(new SelectEntity(2,60));
-		list.add(new SelectEntity(3,90));
-		list.add(new SelectEntity(4,30));
+		ArrayList<Ball> list = new ArrayList<Ball>();
+		list.add(new Ball(0,10));
+		list.add(new Ball(1,30));
+		list.add(new Ball(2,60));
+		list.add(new Ball(3,90));
+		list.add(new Ball(4,30));
 
 		Collections.sort(list, new Decrement());
 		Assert.assertEquals(90, list.get(0).getKey(), Math.pow(10, -6));

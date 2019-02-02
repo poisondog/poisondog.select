@@ -40,13 +40,13 @@ public class Tournament implements Selector {
 	}
 
 	@Override
-	public SelectEntity execute(List<SelectEntity> participants) {
-		SelectEntity best = null;
-		List<SelectEntity> temp = new LinkedList<SelectEntity>();
+	public Ball execute(List<Ball> participants) {
+		Ball best = null;
+		List<Ball> temp = new LinkedList<Ball>();
 		for (int i = 0; i < mRange; i++) {
 			if (participants.size() <= 0)
 				break;
-			SelectEntity entity = participants.remove(mRandom.nextInt(participants.size()));
+			Ball entity = participants.remove(mRandom.nextInt(participants.size()));
 			temp.add(entity);
 			if (best == null || best.getKey() < entity.getKey()) {
 				best = entity;

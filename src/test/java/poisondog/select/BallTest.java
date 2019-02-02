@@ -15,36 +15,37 @@
  */
 package poisondog.select;
 
+import junit.framework.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
 /**
- * 基礎的可選擇元素，用以簡單實現簡單的選擇機制。
  * @author Adam Huang
+ * @since 2009-06-17
  */
-public class SelectEntity  {
-
-	private final double key;
-	private final Object object;
-
-	/**
-	 * Constructors.<br>
-	 * Notice! the key is more bigger more better.
-	 */
-	public SelectEntity(Object object, double key) {
-		this.object = object;
-		this.key = key;
-	}
+public class BallTest {
+	private Ball mEntity;
+	private String title;
 
 	/**
-	 * Constructor
+	 * @throws java.lang.Exception
 	 */
-	public SelectEntity(Object object) {
-		this(object, 1.0);
+	@Before
+	public void setUp() throws Exception {
+		title = new String("Test");
+		mEntity = new Ball(title, 123.7);
 	}
 
-	public Object getEntity() {
-		return object;
+	@Test
+	public void test() {
+		Assert.assertEquals("Test", mEntity.getEntity());
+		Assert.assertEquals(123.7, mEntity.getKey());
 	}
 
-	public double getKey() {
-		return key;
+	@Test
+	public void testDefaultValue() throws Exception {
+		mEntity = new Ball("Test");
+		Assert.assertEquals("Test", mEntity.getEntity());
+		Assert.assertEquals(1.0, mEntity.getKey());
 	}
 }

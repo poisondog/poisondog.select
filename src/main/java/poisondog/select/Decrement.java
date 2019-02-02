@@ -20,10 +20,10 @@ import java.util.Comparator;
  * 以遞減的方式排序。
  * @author Adam Huang <poisondog@gmail.com>
  */
-public class Decrement implements Comparator<SelectEntity> {
+public class Decrement implements Comparator<Ball> {
 
 	@Override
-	public int compare(SelectEntity o1, SelectEntity o2) {
+	public int compare(Ball o1, Ball o2) {
 		if (o1.getKey() < o2.getKey())
 			return 1;
 		else if (o1.getKey() > o2.getKey())

@@ -43,16 +43,16 @@ public class RouletteTest {
 
 	@Test
 	public void testSelection() {
-		List<SelectEntity> list = new ArrayList<SelectEntity>();
-		list.add(new SelectEntity(0,10));
-		list.add(new SelectEntity(1,40));
-		list.add(new SelectEntity(2,60));
-		list.add(new SelectEntity(3,90));
+		List<Ball> list = new ArrayList<Ball>();
+		list.add(new Ball(0,10));
+		list.add(new Ball(1,40));
+		list.add(new Ball(2,60));
+		list.add(new Ball(3,90));
 		
 		int[] ints=new int[4];
 		for (int i = 0; i < 10000000; i++) {
-			SelectEntity winner = mSelector.execute(list);
-			int k=Integer.parseInt(((SelectEntity)winner).getEntity().toString());
+			Ball winner = mSelector.execute(list);
+			int k=Integer.parseInt(((Ball)winner).getEntity().toString());
 			ints[k]++;
 		}
 
@@ -64,12 +64,12 @@ public class RouletteTest {
 
 	@Test
 	public void testAverageRunTime() throws Exception {
-		List<SelectEntity> list = new ArrayList<SelectEntity>();
-		list.add(new SelectEntity(0,1));
-		list.add(new SelectEntity(1,1));
-		list.add(new SelectEntity(2,1));
-		list.add(new SelectEntity(3,1));
-		list.add(new SelectEntity(4,1));
+		List<Ball> list = new ArrayList<Ball>();
+		list.add(new Ball(0,1));
+		list.add(new Ball(1,1));
+		list.add(new Ball(2,1));
+		list.add(new Ball(3,1));
+		list.add(new Ball(4,1));
 
 		double sum = 0;
 		int count = 0;

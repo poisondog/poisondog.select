@@ -35,16 +35,16 @@ public class InverseRouletteTest {
 
 	@Test
 	public void testSelection() throws Exception {
-		List<SelectEntity> list = new ArrayList<SelectEntity>();
-		list.add(new SelectEntity(0,10));
-		list.add(new SelectEntity(1,40));
-		list.add(new SelectEntity(2,60));
-		list.add(new SelectEntity(3,90));
+		List<Ball> list = new ArrayList<Ball>();
+		list.add(new Ball(0,10));
+		list.add(new Ball(1,40));
+		list.add(new Ball(2,60));
+		list.add(new Ball(3,90));
 		
 		int[] ints=new int[4];
 		for (int i = 0; i < 10000000; i++) {
-			SelectEntity winner = selection.execute(list);
-			int k=Integer.parseInt(((SelectEntity)winner).getEntity().toString());
+			Ball winner = selection.execute(list);
+			int k=Integer.parseInt(((Ball)winner).getEntity().toString());
 			ints[k]++;
 		}
 

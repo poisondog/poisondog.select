@@ -22,11 +22,11 @@ import poisondog.core.Mission;
  * 選擇機制介面。
  * @author Adam Huang
  */
-public interface Selector extends Mission<List<SelectEntity>> {
+public interface Selector extends Mission<List<Ball>> {
 	/**
 	 * 由參加者中，取得獲勝者
 	 * @param participants 為參加者所構成的串列
 	 * @return participants 中的勝利者
 	 */
-	public SelectEntity execute(List<SelectEntity> participants);
+	public Ball execute(List<Ball> participants);
 }

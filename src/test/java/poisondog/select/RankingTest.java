@@ -43,16 +43,16 @@ public class RankingTest {
 
 	@Test
 	public void testSelection() {
-		List<SelectEntity> list = new ArrayList<SelectEntity>();
-		list.add(new SelectEntity(0,1));
-		list.add(new SelectEntity(1,30));
-		list.add(new SelectEntity(2,60));
-		list.add(new SelectEntity(3,90));
+		List<Ball> list = new ArrayList<Ball>();
+		list.add(new Ball(0,1));
+		list.add(new Ball(1,30));
+		list.add(new Ball(2,60));
+		list.add(new Ball(3,90));
 		
 		int[] ints=new int[4];
 		for (int i = 0; i < 1000000; i++) {
-			SelectEntity winner = mRanking.execute(list);
-			int k=Integer.parseInt(((SelectEntity)winner).getEntity().toString());
+			Ball winner = mRanking.execute(list);
+			int k=Integer.parseInt(((Ball)winner).getEntity().toString());
 			ints[k]++;
 		}
 		
@@ -64,16 +64,16 @@ public class RankingTest {
 
 	@Test
 	public void testSameValue() throws Exception {
-		List<SelectEntity> list = new ArrayList<SelectEntity>();
-		list.add(new SelectEntity(0,0));
-		list.add(new SelectEntity(1,0));
-		list.add(new SelectEntity(2,0));
-		list.add(new SelectEntity(3,0));
+		List<Ball> list = new ArrayList<Ball>();
+		list.add(new Ball(0,0));
+		list.add(new Ball(1,0));
+		list.add(new Ball(2,0));
+		list.add(new Ball(3,0));
 		
 		int[] ints=new int[4];
 		for (int i = 0; i < 1000000; i++) {
-			SelectEntity winner = mRanking.execute(list);
-			int k=Integer.parseInt(((SelectEntity)winner).getEntity().toString());
+			Ball winner = mRanking.execute(list);
+			int k=Integer.parseInt(((Ball)winner).getEntity().toString());
 			ints[k]++;
 		}
 		
@@ -85,12 +85,12 @@ public class RankingTest {
 
 	@Test
 	public void testAverageRunTime() throws Exception {
-		List<SelectEntity> list = new ArrayList<SelectEntity>();
-		list.add(new SelectEntity(0,1));
-		list.add(new SelectEntity(1,3));
-		list.add(new SelectEntity(2,5));
-		list.add(new SelectEntity(3,2));
-		list.add(new SelectEntity(4,4));
+		List<Ball> list = new ArrayList<Ball>();
+		list.add(new Ball(0,1));
+		list.add(new Ball(1,3));
+		list.add(new Ball(2,5));
+		list.add(new Ball(3,2));
+		list.add(new Ball(4,4));
 
 		double sum = 0;
 		int count = 0;

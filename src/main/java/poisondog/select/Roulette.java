@@ -40,10 +40,10 @@ public class Roulette implements Selector {
 	}
 
 	@Override
-	public SelectEntity execute(List<SelectEntity> participants) {
+	public Ball execute(List<Ball> participants) {
 		double sum = 0;
 		for (int i = 0; i < participants.size(); i++) {
-			sum += ((SelectEntity) participants.get(i)).getKey();
+			sum += ((Ball) participants.get(i)).getKey();
 		}
 		double index = mRandom.nextDouble() * sum;
 		double current = 0;
