@@ -47,4 +47,14 @@ public class Ball  {
 	public double getKey() {
 		return key;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[");
+		builder.append(getKey());
+		builder.append("]");
+		builder.append(getEntity());
+		return builder.toString();
+	}
 }

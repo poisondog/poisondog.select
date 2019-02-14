@@ -16,14 +16,42 @@
 package poisondog.select;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Adam Huang <poisondog@gmail.com>
  */
 public class Best implements Selector {
+	private Random mRandom;
+	private double mRate;
+
+	/**
+	 * Constructor
+	 */
+	public Best() {
+		mRandom = new Random();
+		mRate = 1;
+	}
+
+	/**
+	 * Constructor
+	 */
+	public Best(long seed) {
+		mRandom = new Random(seed);
+		mRate = 1;
+	}
+
+	public void setRate(double rate) {
+		mRate = rate;
+	}
 
 	@Override
 	public Ball execute(List<Ball> participants) {
+		if (mRandom.nextDouble() > mRate) {
+			int index = mRandom.nextInt(participants.size());
+			return participants.get(index);
+		}
+
 		Ball best = new Ball(null, Double.NEGATIVE_INFINITY);
 		for (Ball entity : participants) {
 			if (entity.getKey() > best.getKey())

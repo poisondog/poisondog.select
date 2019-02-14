@@ -16,19 +16,20 @@ import org.junit.Test;
  * 
  */
 public class BestTest {
+	private Best mSelector;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+		mSelector = new Best(10l);
+		mSelector.setRate(0.9);
 	}
-	
+
 	@Test
 	public void testGetWinner() throws Exception {
-		Best selection = new Best();
-		
-		Ball s1 = new Ball(0, 1);
+		Ball s1 = new Ball(0, 10);
 		Ball s2 = new Ball(1, 30);
 		Ball s3 = new Ball(2, 60);
 		Ball s4 = new Ball(3, 90);
@@ -39,8 +40,16 @@ public class BestTest {
 		list.add(s3);
 		list.add(s4);
 
-		for (int i = 0; i < 100; i++) {
-			Assert.assertEquals(s4, selection.execute(list));
+		int[] ints=new int[4];
+		for (int i = 0; i < 10000000; i++) {
+			Ball winner = mSelector.execute(list);
+			int k=Integer.parseInt(((Ball)winner).getEntity().toString());
+			ints[k]++;
 		}
+
+		Assert.assertEquals(0.0249411,ints[0]/10000000.0,Math.pow(10, -3));
+		Assert.assertEquals(0.0249715,ints[1]/10000000.0,Math.pow(10, -3));
+		Assert.assertEquals(0.0250296,ints[2]/10000000.0,Math.pow(10, -3));
+		Assert.assertEquals(0.9250578,ints[3]/10000000.0,Math.pow(10, -3));
 	}
 }
