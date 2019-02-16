@@ -15,6 +15,7 @@
  */
 package poisondog.select;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -52,11 +53,16 @@ public class Best implements Selector {
 			return participants.get(index);
 		}
 
-		Ball best = new Ball(null, Double.NEGATIVE_INFINITY);
-		for (Ball entity : participants) {
-			if (entity.getKey() > best.getKey())
-				best = entity;
+		double top = Double.NEGATIVE_INFINITY;
+		for (Ball ball : participants) {
+			top = Math.max(top, ball.getKey());
 		}
-		return best;
+
+		ArrayList<Ball> ready = new ArrayList<Ball>();
+		for (Ball ball : participants) {
+			if (ball.getKey() == top)
+				ready.add(ball);
+		}
+		return ready.get(mRandom.nextInt(ready.size()));
 	}
 }
