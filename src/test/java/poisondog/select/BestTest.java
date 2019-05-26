@@ -99,9 +99,9 @@ public class BestTest {
 			ints[k]++;
 		}
 
-		Assert.assertEquals(0.0249411,ints[0]/10000000.0,Math.pow(10, -3));
-		Assert.assertEquals(0.0249715,ints[1]/10000000.0,Math.pow(10, -3));
-		Assert.assertEquals(0.4750211,ints[2]/10000000.0,Math.pow(10, -3));
-		Assert.assertEquals(0.4749921,ints[3]/10000000.0,Math.pow(10, -3));
+		Assert.assertEquals(0.2499391,ints[0]/10000000.0,Math.pow(10, -3));
+		Assert.assertEquals(0.2500677,ints[1]/10000000.0,Math.pow(10, -3));
+		Assert.assertEquals(0.2501892,ints[2]/10000000.0,Math.pow(10, -3));
+		Assert.assertEquals(0.249804,ints[3]/10000000.0,Math.pow(10, -3));
 	}
 }
