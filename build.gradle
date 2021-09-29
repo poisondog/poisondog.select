@@ -9,7 +9,6 @@
 
 plugins {
 	id "com.jfrog.bintray" version "1.7"
-	id "net.saliman.cobertura" version "2.3.1"
 }
 
 group = 'poisondog'
@@ -18,7 +17,7 @@ version = '2.1.1'
 repositories {
 	jcenter()
 	maven {
-		url "https://dl.bintray.com/poisondog/poisondog"
+		url "http://poisondog.com:8081/repository/maven-public/"
 	}
 }
 
@@ -26,8 +25,8 @@ apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
-targetCompatibility = 1.5
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
 
 dependencies {
 	compile 'org.slf4j:slf4j-api:1.7.21'
@@ -35,32 +34,4 @@ dependencies {
 	testCompile "junit:junit:4.11"
 }
 
-publishing {
-	publications {
-		MyPublication(MavenPublication) {
-			from components.java
-			groupId group
-			artifactId project.name
-			version version
-		}
-	}
-}
-
-bintray {
-	Properties properties = new Properties()
-	properties.load(project.rootProject.file('local.properties').newDataInputStream())
-	user = properties.getProperty('bintray.user')
-	key = properties.getProperty('bintray.apikey')
-	publications = ['MyPublication']
-	pkg {
-		repo = 'poisondog'
-		name = project.name
-		licenses = ['Apache-2.0']
-		vcsUrl = 'https://github.com/poisondog/poisondog.select.git'
-	}
-}
-
-cobertura {
-	coverageFormats = ['html', 'xml']
-}
-
+apply from: 'https://raw.githubusercontent.com/poisondog/gradle.tool/master/java/uploadNexus.gradle'
